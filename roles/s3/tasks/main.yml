@@ -1,0 +1,11 @@
+- name: Create an s3 bucket
+  aws_s3:
+    bucket: "{{ bucket }}"
+    mode: create
+
+- name: Upload backup file to s3
+  aws_s3:
+    bucket: "{{ bucket }}"
+    object: "{{ file }}"
+    src: "{{ file }}"
+    mode: put

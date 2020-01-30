@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+
+  connection: local
+
+  gather_facts: no
+
+  vars:
+    database: myapplication
+    database_username: user
+    database_password: password
+    database_host: localhost
+
+  name: Backup a database
+
+  roles:
+    - backup

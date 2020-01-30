@@ -1,0 +1,15 @@
+- name: Dump database
+  mysql_db:
+    state: dump
+    login_host: "{{ database_host }}"
+    login_user: "{{ database_username }}"
+    login_password: "{{ database_password }}"
+    name:
+      - "{{ database }}"
+    target: "{{ database }}.sql"
+
+- name: Compress database backup
+  archive:
+    path: "{{ database }}.sql"
+    dest: "{{ database }}.sql.gz"
+    format: gz

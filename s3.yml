@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+
+  connection: local
+
+  gather_facts: no
+
+  vars:
+    bucket: myapplication-backup-bucket-ansible
+    file: myapplication.sql.gz
+
+  name: Backup and upload to s3
+
+  roles:
+    - s3
